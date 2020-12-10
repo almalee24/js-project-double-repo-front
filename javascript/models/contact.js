@@ -10,7 +10,7 @@ class Contact {
         this.renderContact()
     }
 
-    renderCocontact
+    renderCocontact{
         const contactHolder = document.getElementById("user-contact-list")
         const contactContainer = document.createElement('div')
         contactContainer.dataset.id = this.id
