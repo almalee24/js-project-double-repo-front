@@ -10,47 +10,77 @@ class Position {
         this.renderPosition()
     }
 
-    renderPosition(){
-        const positionContainer = document.getElementById("content")
-        const positionCard = document.createElement('div')
-        const positionInfo = document.createElement('div')
-        positionInfo.classList.add("position-info")
-        positionCard.classList.add("position-card")
-        positionInfo.id = this.id
-        positionInfo.innerHTML += this.positionHTML()
-        positionContainer.appendChild(positionCard)
-        positionCard.appendChild(positionInfo)
-        positionCard.addEventListener("click", e => {
-            if (e.target.className.includes("delete")) this.deletePosition(e)
-        })
+    getYYYYMMDD(d0) {
+        const d = new Date(d0)
+        const m = new Date(d.getTime() - d.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
+        return m
     }
 
     positionHTML(){
+        let checked = this.applied == true ? "checked" : ""
+        let date = this.getYYYYMMDD(this.applied_date)
         return `
         <h2 class="position-title">${this.title}</h2>
         <h3 class="position-company">${this.company_name}</h3>
         <p>Location: ${this.location}</p>
         <p>Description: ${this.description}</p>
-        <p>Have you applied? ${this.applied}</p>
-        <p>When did you apply? ${this.applied_date}</p>
+        <p>Have you applied? <input data-id="${this.id}" class="toggle" type="checkbox" value="applied" ${checked}></p>
+        <p>When did you apply? <input data-id="${this.id}" class="date" type="date" value="${date}" ${date}></p>
         <button class="delete">Delete</button>
         `
     }
 
     deletePosition(e){
         const id = parseInt(e.target.parentElement.id)
-        fetch(`http://localhost:3000/positions/${id}`, {
+        debugger
+        fetch(`http://localhost:3000/positions/${id}`,{
             method: 'DELETE'
         })
         .then(() => {
-            document.getElementById('position-container').removeChild(document.getElementById(id))
+            document.getElementById('content').removeChild(document.getElementById(id))
         })
     }
 
-    editPosition(e){
-        const id = parseInt(e.target.parentElement.id)
-        fetch(`http://localhost:3000/positions/${id}`, {
-            method: 'PATCH'
+    appliedToggle(e){
+        const id = parseInt(e.target.dataset.id)
+        fetch(`http://localhost:3000/positions/${id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                applied: e.target.checked
+            })
+        })
+    }
+
+    appliedDate(e){
+        const id = parseInt(e.target.dataset.id)
+        fetch(`http://localhost:3000/positions/${id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                applied_date: e.target.value
+            })
+        })
+    }
+
+
+    renderPosition(){
+        const positionContainer = document.getElementById("content")
+        const positionCard = document.createElement('div')
+        positionCard.classList.add("position-card")
+        positionCard.id = this.id
+        positionCard.innerHTML += this.positionHTML()
+        positionContainer.appendChild(positionCard)
+        positionCard.addEventListener("click", e => {
+            if (e.target.className === "toggle") this.appliedToggle(e)
+            if (e.target.className.includes("delete")) this.deletePosition(e)
+        })
+        positionCard.addEventListener("change", e => {
+            if (e.target.className == "date") this.appliedDate(e)
         })
     }
 }

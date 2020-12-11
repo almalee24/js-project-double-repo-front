@@ -26,10 +26,11 @@ class Contact {
     }
 
     contactHTML(){
+        
         return `
         <h2 class="contact-title">${this.first_name} ${this.last_name}</h2>
         <h3 class="contact_company">${this.company_name}</h3>
-        <p>Email: ${this.email}</p>
+        <p>Email: <input data-id="${this.id}" class="toggle" type="string" value="${this.email}"></p>
         <p>Job Title: ${this.job_title}</p>
         <button class="delete">Delete</button>
         <button class="edit">Edit</button>

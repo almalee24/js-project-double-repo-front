@@ -24,29 +24,6 @@ header{
     padding: 10px;
 }
 
-.position-card{
-    height: 450px;
-}
-
-.contact-card{
-    height: 350px;
-}
-
-.position-info,
-.contact-info{
-    padding: 20px;
-    border: 2px solid #e4e1e8;
-    border-radius: 10px;
-}
-
-.contact-info{
-    height: 300px;
-}
-
-.position-info{
-    height: 400px;
-}
-
 
 .buttons{
     float: right;
