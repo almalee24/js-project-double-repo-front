@@ -12,13 +12,10 @@ class Contact {
     renderContact(){
         const contactContainer = document.getElementById("content")
         const contactCard = document.createElement('div')
-        const contactInfo = document.createElement('div')
-        contactInfo.classList.add("contact-info")
         contactCard.classList.add("contact-card")
-        contactInfo.id = this.id
-        contactInfo.innerHTML += this.contactHTML()
+        contactCard.id = this.id
+        contactCard.innerHTML += this.contactHTML()
         contactContainer.appendChild(contactCard)
-        contactCard.appendChild(contactInfo)
         contactCard.addEventListener("click", e => {
             if (e.target.className.includes("delete")) this.deleteContact(e)
             if (e.target.className.includes("edit")) this.editeContact(e)
@@ -30,10 +27,9 @@ class Contact {
         return `
         <h2 class="contact-title">${this.first_name} ${this.last_name}</h2>
         <h3 class="contact_company">${this.company_name}</h3>
-        <p>Email: <input data-id="${this.id}" class="toggle" type="string" value="${this.email}"></p>
+        <p>Email: ${this.email}</p>
         <p>Job Title: ${this.job_title}</p>
         <button class="delete">Delete</button>
-        <button class="edit">Edit</button>
         `
     }
 
@@ -43,7 +39,7 @@ class Contact {
             method: 'DELETE'
         })
         .then(() => {
-            document.getElementById('contact-container').removeChild(document.getElementById(id))
+            document.getElementById('content').removeChild(document.getElementById(id))
         })
     }
 

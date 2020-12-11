@@ -11,6 +11,7 @@ class Contact_API{
     }
 
     static addContact(e){
+        debugger
         e.preventDefault()
 
         let data = {
