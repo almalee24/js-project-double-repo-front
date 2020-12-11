@@ -15,3 +15,7 @@ buttons.forEach(button => {
     })
 })
 
+document.addEventListener("DomContentLoaded", function(){
+    document.getElementById('position-form').addEventListener("submit", Position_API.addPosition)
+    document.getElementById('contact-form').addEventListener("submit", Contact_API.addContact)
+})
