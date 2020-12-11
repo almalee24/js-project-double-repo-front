@@ -3,13 +3,23 @@
     <head>
         <title>Job Tracker</title>
         <link rel="stylesheet" href="css/index.css">
-        <script type="text/javascript" src="javascript/services/API.js"></script>
-        <script type="text/javascript" src="javascript/models/position.js"></script>
-        <script type="text/javascript" src="javascript/index.js"></script>
     </head>
     <body>
-        <h1>this is a job tracker </h1>
-        <div id="position-container"></div>
-        <div id="contact-container"></div>
+        <header >
+            <div class="logo"><h1>Jobify Tracker</h1></div>
+            <div class="buttons">
+                <button id="home_btn">Home</button>
+                <button id="position_btn">Positions</button>
+                <button id="contact_btn">Contacts</button>
+            </div>
+        </header>
+        <div id="content">
+            <h1>Welcome to your Job Tracker</h1>
+        </div>
     </body>
+        <script type="text/javascript" src="javascript/services/Contact_API.js"></script>
+        <script type="text/javascript" src="javascript/services/Position_API.js"></script>
+        <script type="text/javascript" src="javascript/models/contact.js"></script>
+        <script type="text/javascript" src="javascript/models/position.js"></script>
+        <script type="text/javascript" src="javascript/index.js"></script>
 </html>

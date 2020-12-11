@@ -11,12 +11,15 @@ class Position {
     }
 
     renderPosition(){
-        const positionContainer = document.getElementById("position-container")
+        const positionContainer = document.getElementById("content")
         const positionCard = document.createElement('div')
-        positionCard.classList.add('position-card')
-        positionCard.id = this.id
-        positionCard.innerHTML += this.positionHTML()
+        const positionInfo = document.createElement('div')
+        positionInfo.classList.add("position-info")
+        positionCard.classList.add("position-card")
+        positionInfo.id = this.id
+        positionInfo.innerHTML += this.positionHTML()
         positionContainer.appendChild(positionCard)
+        positionCard.appendChild(positionInfo)
         positionCard.addEventListener("click", e => {
             if (e.target.className.includes("delete")) this.deletePosition(e)
         })
@@ -40,7 +43,14 @@ class Position {
             method: 'DELETE'
         })
         .then(() => {
-            document.getElmentById('position-container').removeChild(document.getElementById(id))
+            document.getElementById('position-container').removeChild(document.getElementById(id))
+        })
+    }
+
+    editPosition(e){
+        const id = parseInt(e.target.parentElement.id)
+        fetch(`http://localhost:3000/positions/${id}`, {
+            method: 'PATCH'
         })
     }
 }
