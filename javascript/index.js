@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("a");
 let el = document.getElementById("content")
 
 buttons.forEach(button => {
@@ -15,7 +15,11 @@ buttons.forEach(button => {
     })
 })
 
+document.getElementById('logo').addEventListener('click', function(){
+    window.location.reload();
+});
+
 document.addEventListener("DomContentLoaded", function(){
     document.getElementById('position-form').addEventListener("submit", Position_API.addPosition)
     document.getElementById('contact-form').addEventListener("submit", Contact_API.addContact)
-})
+});

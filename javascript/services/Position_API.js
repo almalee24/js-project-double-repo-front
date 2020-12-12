@@ -12,6 +12,7 @@ class Position_API{
     }
 
     static addPosition(e){
+        debugger
         e.preventDefault()
 
         let data = {

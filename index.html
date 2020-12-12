@@ -3,21 +3,26 @@
     <head>
         <title>Job Tracker</title>
         <link rel="stylesheet" href="css/index.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header >
-            <div class="logo"><h1>Jobify Tracker</h1></div>
-            <div class="buttons">
-                <button id="home_btn">Home</button>
-                <button id="position_btn">Positions</button>
-                <button id="contact_btn">Contacts</button>
+        <header>
+            <div class="fixed row header">
+                <img id="logo" src="css/img/logo.png" alt="Jobiy"></img>
+                <div class="buttons">
+                    <a id="home_btn">Home</a>
+                    <a id="position_btn">Positions</a>
+                    <a id="contact_btn">Contacts</a>
+                </div>
             </div>
         </header>
         <div id="content">
             <h1>Welcome to your Job Tracker</h1>
-            <div id='position-form'>
-                <h3>New Position</h3>
-                <form id="position-form-form">
+            <div class="form">
+            <div id='position-form-box'>
+                <h3>Found a position you like?</h3>
+                <form id="position-form">
                     <label>Position Title:</label>
                     <input type="text" name="title"> 
                     <br/>
@@ -36,29 +41,29 @@
                     <label>When did you apply?</label>
                     <input type="date" name="applied_date">
                     <br>
-                    <input type="submit" value="Submit">
+                    <input class="submit" type="submit" value="Submit">
                 </form>
             </div>
 
-            <div id='contact-form'>
-                <h3>New Contact</h3>
-                <form id="contact-form-form">
+            <div id='contact-form-box'>
+                <h3>Did you make a new contact?</h3>
+                <form id="contact-form">
                     <label>First Name:</label>
-                    <input type="text" name="title"> 
+                    <input type="text" name="first_name"> 
                     <br/>
                     <label>Last Name:</label>
-                    <input type="text" name="company_name">
+                    <input type="text" name="last_name">
                     <br/>
                     <label>Company Name:</label>
-                    <input type="text" name="location">
+                    <input type="text" name="company_name">
                     <br/>
                     <label>Email:</label>
-                    <input type="textarea" name="description">
+                    <input type="text" name="email">
                     <br/>
                     <label>Position Title:</label>
-                    <input type="checkbox" name="applied">
+                    <input type="text" name="title">
                     <br/>
-                    <input type="submit" value="Submit">
+                    <input class="submit" type="submit" value="Submit">
                 </form>
             </div>
         </div>
