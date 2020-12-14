@@ -35,7 +35,7 @@ class Position_API{
         .then(position => {
             const{id, title, company_name, location, description, applied, applied_date} = position
             new Position(id, title, company_name, location, description, applied, applied_date)
-            document.getElementById('position-form').reset()
+            window.location.reload();
         })
     }
 }
