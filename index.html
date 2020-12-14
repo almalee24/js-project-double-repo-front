@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Job Tracker</title>
+        <title>Jobify: The only way up</title>
+        <link rel="shortcut icon" type="image/svg" href="css/img/jobify_favicon.svg">
         <link rel="stylesheet" href="css/index.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="fixed row header">
-                <img id="logo" src="css/img/logo.png" alt="Jobiy"></img>
-                <div class="buttons">
-                    <a id="home_btn">Home</a>
-                    <a id="position_btn">Positions</a>
-                    <a id="contact_btn">Contacts</a>
-                </div>
+        <header id="header">
+            <div class="fixed row header" id='fixed'>
+                    <img id="logo" src="css/img/logo.svg" alt="Jobiy"></img>
+                    <div class="buttons">
+                        <a id="home_btn">Home</a>
+                        <a id="position_btn">Positions</a>
+                        <a id="contact_btn">Contacts</a>
+                    </div>
             </div>
         </header>
-        <div id="content">
-            <h1>Welcome to your Job Tracker</h1>
-            <div class="form">
-            <div id='position-form-box'>
-                <h3>Found a position you like?</h3>
-                <form id="position-form">
-                    <label>Position Title:</label>
-                    <input type="text" name="title"> 
-                    <br/>
-                    <label>Company Name:</label>
-                    <input type="text" name="company_name">
-                    <br/>
-                    <label>Location:</label>
-                    <input type="text" name="location">
-                    <br/>
-                    <label>Description:</label>
-                    <input type="textarea" name="description">
-                    <br/>
-                    <label>Have you applied?</label>
-                    <input type="checkbox" name="applied">
-                    <br/>
-                    <label>When did you apply?</label>
-                    <input type="date" name="applied_date">
-                    <br>
-                    <input class="submit" type="submit" value="Submit">
-                </form>
+        <div>
+            <div>
+                <h1 id="title"></h1>
             </div>
+            <div id="content">
+                <div class="form">
+                    <div id='position-form-box'>
+                        <h3>Found a position you like?</h3>
+                        <form id="position-form">
+                            <label>Position Title:</label>
+                            <input type="text" name="title"> 
+                            <br/>
+                            <label>Company Name:</label>
+                            <input type="text" name="company_name">
+                            <br/>
+                            <label>Location:</label>
+                            <input type="text" name="location">
+                            <br/>
+                            <label>Description:</label>
+                            <input type="textarea" name="description">
+                            <br/>
+                            <label>Have you applied?</label>
+                            <input type="checkbox" name="applied">
+                            <br/>
+                            <label>When did you apply?</label>
+                            <input type="date" name="applied_date">
+                            <br>
+                            <input class="submit" type="submit" value="Submit">
+                        </form>
+                    </div>
 
-            <div id='contact-form-box'>
-                <h3>Did you make a new contact?</h3>
-                <form id="contact-form">
-                    <label>First Name:</label>
-                    <input type="text" name="first_name"> 
-                    <br/>
-                    <label>Last Name:</label>
-                    <input type="text" name="last_name">
-                    <br/>
-                    <label>Company Name:</label>
-                    <input type="text" name="company_name">
-                    <br/>
-                    <label>Email:</label>
-                    <input type="text" name="email">
-                    <br/>
-                    <label>Position Title:</label>
-                    <input type="text" name="title">
-                    <br/>
-                    <input class="submit" type="submit" value="Submit">
-                </form>
+                    <div id='contact-form-box'>
+                        <h3>Did you make a new contact?</h3>
+                        <form id="contact-form">
+                            <label>First Name:</label>
+                            <input type="text" name="first_name"> 
+                            <br/>
+                            <label>Last Name:</label>
+                            <input type="text" name="last_name">
+                            <br/>
+                            <label>Company Name:</label>
+                            <input type="text" name="company_name">
+                            <br/>
+                            <label>Email:</label>
+                            <input type="text" name="email">
+                            <br/>
+                            <label>Position Title:</label>
+                            <input type="text" name="title">
+                            <br/>
+                            <input class="submit" type="submit" value="Submit">
+                        </form>
+                    </div>
             </div>
         </div>
     </body>
