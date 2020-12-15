@@ -2,9 +2,9 @@
 *Front end code 
 *[Back-end here](https://github.com/almalee24/js-project-double-repo-back)
 
-# Jobiy
+# Jobify
 
-Jobiy is position and contact tracker that allows people who are job hunting been organized. You apply to so many positions that you forget what you applied for. You make so many contancts that you forget to keep up with them. Jobify makes that easier. 
+Jobify is position and contact tracker that allows people who are job hunting be organized. It's a Single Page Application, SPA, with a frontend build with HTML, CSS and JavaScript. The frontend will communicate with a backend API that was build with Ruby and Rails. All interactions between the client and the server were handled asynchronously (AJAX) and use JSON as the communication format. The JavaScript application uses Object Oriented JavaScript to encapsulate related data and behavior
 
 ## Note
 

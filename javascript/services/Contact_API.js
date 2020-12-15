@@ -36,4 +36,6 @@ class Contact_API{
             document.getElementById('contact-form').reset()
         })
     }
+
+    
 }
