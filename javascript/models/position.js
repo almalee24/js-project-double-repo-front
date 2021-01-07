@@ -41,6 +41,35 @@ class Position {
         })
     }
 
+    static filtered(event){
+        event.preventDefault()
+        let names = document.getElementsByClassName("position-card")
+        let word = document.getElementsByName("search-filter")[0].value
+        for (let i = 0; i < names.length; i++) {
+            let match = names[i].innerText.split(' ').filter(name => name.toLowerCase() == word.toLowerCase())
+            if(match.length == 0){
+                names[i].style.display = 'none'
+            }
+         }
+         debugger
+    }
+
+    static filterForm(){
+        return `<form id="search-form">
+            <input type="text" name="search-filter">
+            <br>
+            <input class="submit" type="submit" value="Submit">
+        </form>`
+    }
+    
+    static renderSearch(){
+        const contactContainer = document.getElementById("content")
+        const searchCard = document.createElement('div')
+        searchCard.innerHTML += this.filterForm()
+        contactContainer.appendChild(searchCard)
+        document.getElementById('search-form').addEventListener("submit", event => { Position.filtered(event)})
+    }
+
     appliedToggle(e){
         const id = parseInt(e.target.dataset.id)
         fetch(`http://localhost:3000/positions/${id}`,{
@@ -78,9 +107,14 @@ class Position {
         positionCard.addEventListener("click", e => {
             if (e.target.className === "toggle") this.appliedToggle(e)
             if (e.target.className.includes("delete")) this.deletePosition(e)
+            if (e.target.className == 'position-title') this.showContact(e)
         })
         positionCard.addEventListener("change", e => {
             if (e.target.className == "date") this.appliedDate(e)
         })
+    }
+
+    showContact(){
+        debugger
     }
 }

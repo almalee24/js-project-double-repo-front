@@ -4,11 +4,13 @@ class Contact_API{
         .then(resp => resp.json())
         .then(contacts => {
             contacts.forEach(contact => {
-                const{id, first_name, company_name, last_name, email, job_title} = contact
-                new Contact(id, first_name, company_name, last_name, email, job_title)
+                const{id, first_name, last_name, company_name, email, job_title, connections} = contact
+                new Contact(id, first_name, last_name,  company_name, email, job_title, connections)
             })
         })
+        Contact.renderSearch()
     }
+
 
     static addContact(e){
         debugger
@@ -16,10 +18,14 @@ class Contact_API{
 
         let data = {
             "first_name": e.target.first_name.value,
-            "company_name": e.target.company_name.value,
             "last_name": e.target.last_name.value,
+            "company_name": e.target.company_name.value,
             "email": e.target.email.value,
-            "job_title": e.target.job_title.value
+            "job_title": e.target.job_title.value,
+            "connections_attributes": [{
+                "contact_date": e.target.contact_date.value,
+                "take_away": e.target.take_away.value
+            }]
         };
 
         fetch("http://localhost:3000/contacts", {
@@ -31,9 +37,8 @@ class Contact_API{
         })
         .then(resp => resp.json())
         .then(contact => {
-            const{id, first_name, company_name, last_name, email, job_title} = contact
-            new Contact(id, first_name, company_name, last_name, email, job_title)
-            document.getElementById('contact-form').reset()
+            document.getElementById("contact-form").reset()
+            alert(`Contact for ${contact.company_name} submitted`)
         })
     }
 

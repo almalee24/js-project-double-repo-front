@@ -13,15 +13,14 @@ document.addEventListener("DOMContentLoaded", function(){
                 title.innerHTML = "Contact";
                 el.innerHTML = '';
                 Contact_API.addContacts()
-    
             }else if(this.id == "home_btn"){
                 window.location.reload();
             }
         })
     })
-    document.getElementById('logo').addEventListener('click', function(){
-        window.location.reload();
-    });
+    // document.getElementById('logo').addEventListener('click', function(){
+    //     window.location.reload();
+    // });
     document.getElementById('position-form').addEventListener("submit", Position_API.addPosition)
     document.getElementById('contact-form').addEventListener("submit", Contact_API.addContact)
 });

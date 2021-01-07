@@ -22,7 +22,6 @@ class Position_API{
             "applied": e.target.applied.value,
             "applied_date": e.target.applied_date.value
         };
-        
         fetch("http://localhost:3000/positions", {
             method: 'POST',
             headers: {
@@ -33,9 +32,8 @@ class Position_API{
 
         .then(resp => resp.json())
         .then(position => {
-            const{id, title, company_name, location, description, applied, applied_date} = position
-            new Position(id, title, company_name, location, description, applied, applied_date)
-            window.location.reload();
+            document.getElementById("position-form").reset()
+            alert(`Position for ${position.company_name} submitted`)
         })
     }
 }
